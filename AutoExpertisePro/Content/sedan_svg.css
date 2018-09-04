@@ -1,0 +1,49 @@
+.dinamikparca
+{
+	fill:#c2c2d6;
+	stroke:#000000;
+	stroke-miterlimit:10;
+}
+
+.dinamikolmayanparca
+{
+	fill:#ffffff;
+	stroke:#000000;
+	stroke-miterlimit:10;
+}
+
+
+.parca_orjinal > .dinamikparca
+{
+	fill:#5cd65c;
+
+}
+
+.parca_orjinal > .dinamikparca:hover
+{
+	fill:#2eb82e;
+
+}
+
+.parca_boyali > .dinamikparca 
+{
+	fill:#ff9933;
+
+}
+
+.parca_boyali > .dinamikparca:hover
+{
+	fill:#e67300;
+}
+
+.parca_degisen > .dinamikparca  
+{
+	fill:#ff3333;
+
+}
+
+.parca_degisen > .dinamikparca:hover  
+{
+	fill:#e60000;
+
+}

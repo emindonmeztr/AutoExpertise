@@ -1,0 +1,3 @@
+c:\users\emin\documents\visual studio 2013\Projects\AutoExpertisePro\Database1\bin\Debug\Database1.dacpac
+c:\users\emin\documents\visual studio 2013\Projects\AutoExpertisePro\Database1\obj\Debug\Database1.dll
+c:\users\emin\documents\visual studio 2013\Projects\AutoExpertisePro\Database1\obj\Debug\Database1.pdb

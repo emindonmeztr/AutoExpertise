@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewBag.Title = "Kaporta Durumu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model AutoExpertisePro.Models.KaportaDurumu
+
+
+<div class="container">
+    <div class="page-header">
+        <h1>Kaporta durumu belirle</h1>
+        <p>Aracın kaporta parçalarının durumlarını seçiniz.</p>
+    </div>
+@using (Html.BeginForm("kaportadurumu", "Home", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-sm-4" id="svg_wrapper">
+
+
+            @Html.Raw(File.ReadAllText(Server.MapPath("~/Scripts/sedan_svg.svg")))
+        </div>
+
+
+
+        <div class="col-sm-8">
+            <div class="row" style="font-size:14px">
+                <div class="col-sm-6">
+                        <div class="form-group row">
+                            <label for="durum_kaput" class="col-4 col-form-label">Kaput:</label>
+                            <div class="col-8">
+                                
+                                <select class="form-control" name="@Html.NameFor(model => model.kaput)" onchange="dropdowndegisimi(this.id,this.value);" id="durum_kaput">
+                                    <option value="" disabled selected>Durum Seçiniz</option>
+                                    <option>Orjinal</option>
+                                    <option>Boyalı</option>
+                                    <option>Değişen</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="durum_ontampon" class="col-4 col-form-label">Ön Tampon:</label>
+                            <div class="col-8">
+                                <select class="form-control" name="@Html.NameFor(model => model.tampon_on)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_ontampon">
+                                    <option value="" disabled selected>Durum Seçiniz</option>
+                                    <option>Orjinal</option>
+                                    <option>Boyalı</option>
+                                    <option>Değişen</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="durum_soloncamurluk" class="col-4 col-form-label">Sol Ön Çamurluk:</label>
+                            <div class="col-8">
+                                <select class="form-control" name="@Html.NameFor(model => model.camurluk_on_sol)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_soloncamurluk">
+                                    <option value="" disabled selected>Durum Seçiniz</option>
+                                    <option>Orjinal</option>
+                                    <option>Boyalı</option>
+                                    <option>Değişen</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="durum_solonkapi" class="col-4 col-form-label">Sol Ön Kapı:</label>
+                            <div class="col-8">
+                                <select class="form-control" name="@Html.NameFor(model => model.kapi_on_sol)" onchange="dropdowndegisimi(this.id,this.value);" id="durum_solonkapi">
+                                    <option value="" disabled selected>Durum Seçiniz</option>
+                                    <option>Orjinal</option>
+                                    <option>Boyalı</option>
+                                    <option>Değişen</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="durum_solarkakapi" class="col-4 col-form-label">Sol Arka Kapı:</label>
+                            <div class="col-8">
+                                <select class="form-control" name="@Html.NameFor(model => model.kapi_arka_sol)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_solarkakapi">
+                                    <option value="" disabled selected>Durum Seçiniz</option>
+                                    <option>Orjinal</option>
+                                    <option>Boyalı</option>
+                                    <option>Değişen</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="durum_solarkacamurluk" class="col-4 col-form-label">Sol Arka Çamurluk:</label>
+                            <div class="col-8">
+                                <select class="form-control" name="@Html.NameFor(model => model.camurluk_arka_sol)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_solarkacamurluk">
+                                    <option value="" disabled selected>Durum Seçiniz</option>
+                                    <option>Orjinal</option>
+                                    <option>Boyalı</option>
+                                    <option>Değişen</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="durum_tavan" class="col-4 col-form-label">Tavan:</label>
+                            <div class="col-8">
+                                <select class="form-control" name="@Html.NameFor(model => model.tavan)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_tavan">
+                                    <option value="" disabled selected>Durum Seçiniz</option>
+                                    <option>Orjinal</option>
+                                    <option>Boyalı</option>
+                                    <option>Değişen</option>
+                                </select>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="durum_bkapak" class="col-4 col-form-label">Bagaj:</label>
+                        <div class="col-8">
+                            <select class="form-control" name="@Html.NameFor(model => model.bagaj_kapagi)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_bkapak">
+                                <option value="" disabled selected>Durum Seçiniz</option>
+                                <option>Orjinal</option>
+                                <option>Boyalı</option>
+                                <option>Değişen</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="durum_arkatampon" class="col-4 col-form-label">Arka Tampon:</label>
+                        <div class="col-8">
+                            <select class="form-control" name="@Html.NameFor(model => model.tampon_arka)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_arkatampon">
+                                <option value="" disabled selected>Durum Seçiniz</option>
+                                <option>Orjinal</option>
+                                <option>Boyalı</option>
+                                <option>Değişen</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="durum_sagoncamurluk" class="col-4 col-form-label">Sağ Ön Çamurluk:</label>
+                        <div class="col-8">
+                            <select class="form-control" name="@Html.NameFor(model => model.camurluk_on_sag)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_sagoncamurluk">
+                                <option value="" disabled selected>Durum Seçiniz</option>
+                                <option>Orjinal</option>
+                                <option>Boyalı</option>
+                                <option>Değişen</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="durum_sagonkapi" class="col-4 col-form-label">Sağ Ön Kapı:</label>
+                        <div class="col-8">
+                            <select class="form-control" name="@Html.NameFor(model => model.kapi_on_sag)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_sagonkapi">
+                                <option value="" disabled selected>Durum Seçiniz</option>
+                                <option>Orjinal</option>
+                                <option>Boyalı</option>
+                                <option>Değişen</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="durum_sagarkakapi" class="col-4 col-form-label">Sağ Arka Kapı:</label>
+                        <div class="col-8">
+                            <select class="form-control" name="@Html.NameFor(model => model.kapi_arka_sag)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_sagarkakapi">
+                                <option value="" disabled selected>Durum Seçiniz</option>
+                                <option>Orjinal</option>
+                                <option>Boyalı</option>
+                                <option>Değişen</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="durum_sagarkacamurluk" class="col-4 col-form-label">Sağ Arka Çamurluk:</label>
+                        <div class="col-8">
+                            <select class="form-control" name="@Html.NameFor(model => model.camurluk_arka_sag)"  onchange="dropdowndegisimi(this.id,this.value);" id="durum_sagarkacamurluk">
+                                <option value="" disabled selected>Durum Seçiniz</option>
+                                <option >Orjinal</option>
+                                <option >Boyalı</option>
+                                <option >Değişen</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="float-left" style="font-size:16px;">
+                        <strong style="color:green;">@Html.Encode(ViewData["basarili"])</strong>
+                        <strong style="color:red;">@Html.Encode(ViewData["basarisiz"])</strong>
+</div>
+                        <div class="float-right">
+                            <button type="submit" class="btn btn-primary float-right">Sonraki</button>
+                        </div>
+
+
+                    </div>
+               
+           </div>
+            
+        </div>
+        </div>
+}
+
+        </div>
+
+
+

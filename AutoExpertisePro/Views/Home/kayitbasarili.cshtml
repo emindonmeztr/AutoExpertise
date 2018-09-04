@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Kayıt Başarılı!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" align="center">
+                    <div class="login">
+                        <div class="login-screen">
+                            <div class="app-title">
+                                <img class="img-circle" height="175" weight="175" src="@Url.Content("~/Content/kayitbasarili/success-icon-2.png")" alt="..." />  
+                            <br/> Merhaba Sayın <i>@Html.Encode(ViewData["isimsoyisim"])</i>,    
+                            </div>
+                           <p>Kaydınız başarıyla oluşturulmuştur!<br /> Sisteme girdiğiniz <i>"@Html.Encode(ViewData["email"])" </i> email adresiniz ve şifreniz ile sisteme giriş yapabilirsiniz. </p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+                $(document).ready(function () {
+
+                    demo.initChartist();
+
+                    $.notify({
+                        icon: 'ti-clipboard',
+                        message: "<b>Oto ekspertiz</b> portalına başarıyla kaydoldunuz! Şimdi sağ üstten Giriş yapın'a tıklayarak sisteme giriş yapabilirsiniz."
+
+                    }, {
+                        type: 'success',
+                        timer: 150
+                    });
+
+                });
+</script>

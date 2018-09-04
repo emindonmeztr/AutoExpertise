@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "table";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model AutoExpertisePro.Models.ExpertiseModels
+
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Ekspertiz kaydı oluştur</h1>
+            <p>Aracın temel bilgilerini giriniz.</p>
+        </div>
+@using (Html.BeginForm("ekspertizolustur", "Home", FormMethod.Post))
+{
+        <div class="row">
+            <div class="col-sm-6">
+
+                    <div class="form-group row">
+                        <label for="sasino" class="col-4 col-form-label">Şasi No</label>
+                        <div class="col-8">
+                            @Html.EditorFor(model => model.sase_no, new { htmlAttributes = new { @class = "form-control", value = "", name = "sase_no", @id = "sasi_no", placeholder = "Şasi no girin:", minLength = "17", maxlength = "17", type = "text", required = "required" } })
+                        </div>
+                    </div>
+                <div class="form-group row">
+                    <label for="musteri" class="col-4 col-form-label">Müşteri</label>
+                    <div class="col-8">
+                        <select class="form-control" id="musteri" name="@Html.NameFor(model=>model.musteri)"><option>Seçiniz</option><option>EMIN</option></select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="model" class="col-4 col-form-label">Model</label>
+                    <div class="col-8">
+                        @Html.EditorFor(model => model.model, new { htmlAttributes = new { @class = "form-control", value = "", name = "model", @id = "model", placeholder = "Araç modeli belirleyiniz:", minLength = "5", maxlength = "50", type = "text", required = "required" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="yakittipi" class="col-4 col-form-label">Yakıt tipi</label>
+                    <div class="col-8">
+                        <select class="form-control" id="yakittipi" name="@Html.NameFor(model=>model.yakittipi)"><option>Dizel</option><option>Benzin</option><option>Benzin&amp;LPG</option></select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="renk" class="col-4 col-form-label">Renk</label>
+                    <div class="col-8">
+                        <select class="form-control" id="renk" name="@Html.NameFor(model=>model.renk)"><option>Siyah</option><option>Mavi</option><option>Yeşil</option><option>Sarı</option><option>Beyaz</option><option>Gümüş</option><option>Kırmızı</option><option>Kahverengi</option><option>Gri</option></select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="motorgucu" class="col-4 col-form-label">Motor gücü</label>
+                    <div class="col-8">
+                        @Html.EditorFor(model => model.motorgucu, new { htmlAttributes = new { @class = "form-control", value = "", name = "motorgucu", @id = "motorgucu", placeholder = "Aracın motor gücü:", minLength = "2", maxlength = "10", type = "text", required = "required" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="aracsahibi" class="col-4 col-form-label">Araç sahibi</label>
+                    <div class="col-8">
+                        @Html.EditorFor(model => model.aracsahibi, new { htmlAttributes = new { @class = "form-control", value = "", name = "aracsahibi", @id = "aracsahibi", placeholder = "Aracın sahibi:", minLength = "5", maxlength = "100", type = "text"} })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    <label for="plaka" class="col-4 col-form-label">Plaka</label>
+                    <div class="col-8">
+                        @Html.EditorFor(model => model.plaka, new { htmlAttributes = new { @class = "form-control", value = "", name = "plaka", @id = "plaka", placeholder = "Plaka girin:", minLength = "5", maxlength = "15", type = "text", required = "required" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="marka" class="col-4 col-form-label">Marka</label>
+                    <div class="col-8">
+                        @Html.EditorFor(model => model.marka, new { htmlAttributes = new { @class = "form-control", value = "", name = "marka", @id = "marka", placeholder = "Araç markası belirleyiniz:", minLength = "5", maxlength = "50", type = "text", required = "required" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="vitestipi" class="col-4 col-form-label">Vites tipi</label>
+                    <div class="col-8">
+                        <select class="form-control" id="vitestipi" name="@Html.NameFor(model=>model.vitestipi)"><option>Manuel</option><option>Otomatik</option><option>Yarı-Otomatik</option></select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="modelyili" class="col-4 col-form-label">Yılı</label>
+                    <div class="col-8">
+                       @Html.EditorFor(model => model.modelyılı, new { htmlAttributes = new { @class = "form-control", value = "", name = "modelyili", @id = "modelyili", placeholder = "Aracın üretildiği yıl:", minLength = "4", maxlength = "4", type = "text", required = "required" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="motorhacmi" class="col-4 col-form-label">Motor hacmi</label>
+                    <div class="col-8">
+                        @Html.EditorFor(model => model.motorhacmi, new { htmlAttributes = new { @class = "form-control", value = "", name = "motorhacmi", @id = "motorhacmi", placeholder = "Aracın motor hacmi:", minLength = "2", maxlength = "6", type = "text", required = "required" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="km" class="col-4 col-form-label">Km</label>
+                    <div class="col-8">
+                        @Html.EditorFor(model => model.km, new { htmlAttributes = new { @class = "form-control", value = "", name = "km", @id = "km", placeholder = "Aracın km değeri:", minLength = "1", maxlength = "10", type = "text", required = "required" } })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="aracsahibitlf" class="col-4 col-form-label">Telefon</label>
+                    <div class="col-8">
+                        @Html.EditorFor(model => model.aracsahibi_tel, new { htmlAttributes = new { @class = "form-control", value = "", name = "aracsahibi_tel", @id = "aracsahibi_tel", placeholder = "Araç sahibi telefon numarası:", minLength = "10", maxlength = "10", type = "text" } })
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary float-right">Sonraki</button>
+
+            </div>   
+        </div>}
+
+    </div>
+
+          
+
+
+
+
+
+
+
+
+
+
+

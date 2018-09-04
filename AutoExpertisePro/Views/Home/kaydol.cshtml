@@ -1,0 +1,131 @@
+﻿@model AutoExpertisePro.Models.RegisterModels
+
+
+<!-- RegisterModels.cs model classını Index.cshtml dosyamıza tanıtıyoruz.-->
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("anasayfa", "Home", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Sisteme kaydolun</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group has-danger">
+                    <label class="sr-only" for="email">E-mail Adresi: </label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", value = "", name = "email", @id = "email", placeholder = "Siz@example.com", type = "email", required = "required autofocus" } })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="password">Şifre</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", value = "", name = "password", placeholder = "Şifreniz", @id = "password", type = "password", required = "required" } })
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+        <!--başlangıç isimsoyisim-->
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="isimsoyisim">İsim Soyisim</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-pencil"></i></div>
+                        @Html.EditorFor(model => model.İsimSoyisim, new { htmlAttributes = new { @class = "form-control", value = "", name = "isimsoyisim", placeholder = "İsminiz ve Soyisminiz", @id = "isimsoyisim", type = "text", required = "required" } })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--bitiş isimsoyisim-->
+                <!--başlangıç cep telefonu-->
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="ceptelefonu">Cep Telefonu</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-mobile-phone"></i></div>
+                        @Html.EditorFor(model => model.CepTelefonu, new { htmlAttributes = new { @class = "form-control", value = "", name = "ceptelefonu", placeholder = "Cep Telefonu", @id = "ceptelefonu", type = "text", required = "required" } })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--bitiş ceptelefonu-->
+                        <!--başlangıç adres -->
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="adres">Adres</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-address-card"></i></div>
+                        @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "form-control", value = "", name = "adres", placeholder = "Adres bilginiz", @id = "adres", type = "text", required = "required" } })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--bitiş adres-->
+        
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="padding-top: .35rem">
+                <div class="form-check mb-2 mr-sm-2 mb-sm-0">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1rem">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-address-book"></i> Kaydı oluştur</button>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+
+            </div>
+            
+        </div>
+                    }
+    <div class="col-md-3">
+        @{
+            <div class="input-group mb-2 ml-lg-5 mb-sm-0">
+                @Html.Encode(ViewData["message1"])
+                @Html.Encode(ViewData["message2"])
+                @Html.Encode(ViewData["message3"])
+                @Html.Encode(ViewData["message4"])
+            </div>
+        }
+    </div>
+</div>
+   

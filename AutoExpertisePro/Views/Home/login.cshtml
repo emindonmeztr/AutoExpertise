@@ -1,0 +1,88 @@
+﻿@model AutoExpertisePro.Models.LoginModels
+<!-- LoginModels.cs model classını Index.cshtml dosyamıza tanıtıyoruz.-->
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+@using (Html.BeginForm("login", "Home", FormMethod.Post))
+{
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Lütfen giriş yapın</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group has-danger">
+                    <label class="sr-only" for="email">E-mail Adresi: </label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", value = "", name = "email", @id = "email", placeholder = "siz@example.com", type = "email", required = "required autofocus" } })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="password">Şifre</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", value = "", name = "password", placeholder="Şifreniz", @id = "password", type = "password", required="required"} })
+                              
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                
+            </div>
+            <div class="col-md-3">
+                @{
+                    <div class="input-group mb-2 mr-lg-0 mb-sm-1 ">
+                        @Html.Encode(ViewData["loginmsg1"])
+                        @Html.Encode(ViewData["loginmsg2"])
+                        @Html.Encode(ViewData["loginmsg3"])
+                        @Html.Encode(ViewData["loginmsg4"])
+                        @Html.Encode(ViewData["loginmsg5"])
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="padding-top: .35rem">
+                <div class="form-check mb-2 mr-sm-2 mb-sm-0">
+                    <label class="form-check-label">
+                        <input class="form-check-input" name="remember"
+                               type="checkbox">
+                        <span style="padding-bottom: .15rem">Beni hatırla</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1rem">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i> Giriş Yap</button>
+                <a class="btn btn-link" href="">Şifrenizi mi unuttunuz?</a>
+
+            </div>
+        </div>
+}
+
+        </div>
